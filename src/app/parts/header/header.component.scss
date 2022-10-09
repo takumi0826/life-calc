@@ -1,0 +1,21 @@
+.header {
+  background: var(--header-gradient);
+  &__title {
+    margin: 0 auto;
+    font-family: 'Noto Serif JP', serif;
+
+    &--small {
+      font-size: 1rem;
+    }
+  }
+
+  &__button {
+  }
+
+  &__icon {
+  }
+}
+
+.mat-toolbar {
+  font-family: inherit;
+}

@@ -1,0 +1,35 @@
+<mat-toolbar color="primary" class="header">
+  <button
+    mat-icon-button
+    class="header__button header__button--rigit"
+    aria-label="header icon-button with share icon"
+    (click)="changeMode()"
+  >
+    <mat-icon class="header__icon">{{
+      (isDark$ | async) ? 'light_mode' : 'dark_mode'
+    }}</mat-icon>
+  </button>
+  <h1 class="header__title" [routerLink]="['/']">
+    {{ (title$ | async) || '生活計算帳' }}
+  </h1>
+  <!-- <button mat-icon-button (click)="openDialog('200ms', '200ms')">
+    <mat-icon>edit</mat-icon>
+  </button> -->
+  <button
+    mat-icon-button
+    [matMenuTriggerFor]="menu"
+    aria-label="Example icon-button with a menu"
+  >
+    <mat-icon>edit</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item [routerLink]="['/']">
+      <mat-icon>home</mat-icon>
+      <span>ホーム</span>
+    </button>
+    <button mat-menu-item [routerLink]="['/trip']">
+      <mat-icon>flight</mat-icon>
+      <span>全国旅行割シミュレーター</span>
+    </button>
+  </mat-menu>
+</mat-toolbar>

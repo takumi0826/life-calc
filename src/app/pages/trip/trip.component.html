@@ -1,0 +1,87 @@
+<div class="trip">
+  <div class="container">
+    <div class="trip__block">
+      <p class="trip__label">人数</p>
+      <mat-form-field appearance="fill">
+        <input
+          matInput
+          type="number"
+          [min]="1"
+          [ngModel]="people$ | async"
+          (ngModelChange)="people$.next($event)"
+        />
+        <span matSuffix>人</span>
+      </mat-form-field>
+      <p class="trip__label">旅行代金</p>
+      <mat-form-field appearance="fill">
+        <input
+          matInput
+          type="number"
+          [formControl]="priceControl"
+          [min]="5000"
+          [ngModel]="price$ | async"
+          (ngModelChange)="changePrice($event)"
+        />
+        <span matPrefix>¥&nbsp;</span>
+        <mat-error *ngIf="priceControl.invalid"
+          >¥5000以上を指定してください</mat-error
+        >
+      </mat-form-field>
+      <p class="trip__label">宿泊数</p>
+      <mat-form-field appearance="fill">
+        <mat-select
+          [ngModel]="stay$ | async"
+          (ngModelChange)="stay$.next($event)"
+        >
+          <mat-option [value]="1">1泊2日</mat-option>
+          <mat-option [value]="2">2泊3日</mat-option>
+          <mat-option [value]="3">3泊4日</mat-option>
+          <mat-option [value]="4">4泊5日</mat-option>
+          <mat-option [value]="5">5泊6日</mat-option>
+          <mat-option [value]="6">6泊7日</mat-option>
+          <mat-option [value]="7">7泊8日</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <p class="trip__label">休日・祝日の日数</p>
+      <mat-form-field appearance="fill">
+        <input
+          matInput
+          type="number"
+          [min]="0"
+          [max]="stay$ | async"
+          [ngModel]="holiday$ | async"
+          (ngModelChange)="holiday$.next($event)"
+        />
+        <span matSuffix>日</span>
+      </mat-form-field>
+      <p class="trip__label">旅行の種類</p>
+      <mat-radio-group
+        [ngModel]="isTraffic$ | async"
+        (ngModelChange)="isTraffic$.next($event)"
+      >
+        <mat-radio-button class="trip__radio" [value]="false"
+          >宿泊のみ</mat-radio-button
+        >
+        <mat-radio-button class="trip__radio" [value]="true"
+          >交通機関を利用 + 宿泊</mat-radio-button
+        >
+      </mat-radio-group>
+    </div>
+    <div class="calc-area">
+      <p class="calc-area__text">
+        旅行支援額 {{ discount$ | async | number }}円
+      </p>
+      <p class="calc-area__text">
+        地域クーポン {{ coupon$ | async | number }}円
+      </p>
+      <p class="calc-area__text">
+        合計で
+        <span class="calc-area__total">{{ total$ | async | number }}</span
+        >円分お得です！
+      </p>
+    </div>
+    <div class="trip__description">
+      <h2>全国旅行割とは?</h2>
+    </div>
+  </div>
+</div>
