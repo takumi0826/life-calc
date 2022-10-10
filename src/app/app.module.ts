@@ -14,6 +14,10 @@ import { MaterialModule } from './material/material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { BaseComponent } from './pages/base/base.component';
 import { CheckLengthPipe } from './pipes/check-length.pipe';
+import { TopCardComponent } from './parts/top-card/top-card.component';
+import { ThreePointLeaderPipe } from './pipes/three-point-leader.pipe';
+import { NgxScrollTopModule } from 'ngx-scrolltop';
+import { ScrollTopComponent } from './parts/scroll-top/scroll-top.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +29,9 @@ import { CheckLengthPipe } from './pipes/check-length.pipe';
     SideNavComponent,
     BaseComponent,
     CheckLengthPipe,
+    TopCardComponent,
+    ThreePointLeaderPipe,
+    ScrollTopComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,6 +41,7 @@ import { CheckLengthPipe } from './pipes/check-length.pipe';
     MaterialModule,
     HttpClientModule,
     ReactiveFormsModule,
+    NgxScrollTopModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

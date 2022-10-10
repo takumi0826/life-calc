@@ -10,7 +10,6 @@ import { environment } from 'src/environments/environment';
 export class AppService {
   readonly isDark = new BehaviorSubject<boolean>(false);
   readonly loading$ = new BehaviorSubject<boolean>(true);
-  readonly headerTitle = new BehaviorSubject<string>('');
 
   constructor(private http: HttpClient) {}
 

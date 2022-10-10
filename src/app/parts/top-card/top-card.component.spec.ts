@@ -1,20 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TopComponent } from './top.component';
+import { TopCardComponent } from './top-card.component';
 
-describe('TopComponent', () => {
-  let component: TopComponent;
-  let fixture: ComponentFixture<TopComponent>;
+describe('TopCardComponent', () => {
+  let component: TopCardComponent;
+  let fixture: ComponentFixture<TopCardComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TopComponent ]
-    })
-    .compileComponents();
+      declarations: [TopCardComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TopComponent);
+    fixture = TestBed.createComponent(TopCardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

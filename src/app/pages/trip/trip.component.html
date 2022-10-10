@@ -68,6 +68,7 @@
       </mat-radio-group>
     </div>
     <div class="calc-area">
+      <p class="calc-area__title">結果</p>
       <p class="calc-area__text">
         旅行支援額 {{ discount$ | async | number }}円
       </p>
@@ -80,8 +81,23 @@
         >円分お得です！
       </p>
     </div>
-    <div class="trip__description">
-      <h2>全国旅行割とは?</h2>
-    </div>
+    <section class="trip__section">
+      <h2 class="title-lg">全国旅行割とは?</h2>
+      <p>
+        国内旅行代金の40%が割引されるキャンペーン。
+        交通付旅行は1泊あたり最大8,000円、その他の旅行商品は最大5,000円が割引される。
+        さらに飲食店等で利用できるクーポン券を平日は1人1泊3,000円分、休日は1人1泊1,000円分配布。
+      </p>
+      <ul>
+        <li>期間: 2022/10/11～12月下旬</li>
+        <li>
+          割引上限額: 交通機関の利用 +
+          宿泊の場合8,000円、宿泊のみまたは日帰りの場合5,000円
+        </li>
+        <li>地域クーポン: 平日3,000円、休日1,000円</li>
+        <li>制限: 連泊で7泊まで。</li>
+        <li>対象者: ワクチン3回接種済みまたは陰性証明書の提示</li>
+      </ul>
+    </section>
   </div>
 </div>

@@ -1,0 +1,20 @@
+<mat-card class="card gradient-bg" routerLink="/trip">
+  <mat-card-title-group>
+    <mat-card-title class="card__title" [title]="item.title">{{
+      item.title | threePointLeader: 14
+    }}</mat-card-title>
+    <!-- <mat-card-subtitle class="card__subtitle">{{
+      item.category | categoryType
+    }}</mat-card-subtitle> -->
+    <img
+      class="card__image"
+      mat-card-sm-image
+      src="/assets/img/{{ cardImage }}"
+      alt="動物の画像"
+      loading="lazy"
+    />
+  </mat-card-title-group>
+  <mat-card-content class="card__content">
+    {{ item.content }}
+  </mat-card-content>
+</mat-card>

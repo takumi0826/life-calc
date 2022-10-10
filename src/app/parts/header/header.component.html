@@ -10,7 +10,7 @@
     }}</mat-icon>
   </button>
   <h1 class="header__title" [routerLink]="['/']">
-    {{ (title$ | async) || '生活計算帳' }}
+    {{ title }}
   </h1>
   <!-- <button mat-icon-button (click)="openDialog('200ms', '200ms')">
     <mat-icon>edit</mat-icon>
@@ -20,7 +20,7 @@
     [matMenuTriggerFor]="menu"
     aria-label="Example icon-button with a menu"
   >
-    <mat-icon>edit</mat-icon>
+    <mat-icon>more_vert</mat-icon>
   </button>
   <mat-menu #menu="matMenu">
     <button mat-menu-item [routerLink]="['/']">

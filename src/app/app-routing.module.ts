@@ -4,7 +4,7 @@ import { TopComponent } from './pages/top/top.component';
 import { TripComponent } from './pages/trip/trip.component';
 
 const routes: Routes = [
-  { path: '', component: TopComponent, title: '生活計算帳' },
+  { path: '', component: TopComponent, title: 'ライフブック!' },
   { path: 'trip', component: TripComponent, title: '全国旅行割シミュレーター' },
   // { path: 'delete', component: DeleteDataComponent },
 ];

@@ -1,4 +1,25 @@
-<ul>
-  <li routerLink="/trip">全国旅行割</li>
-  <li></li>
-</ul>
+<div class="top">
+  <div class="top__container">
+    <div class="top__search">
+      <h2 class="size__title">一覧</h2>
+      <!-- <div class="categorys">
+        <mat-chip-list aria-label="categorys selection">
+          <mat-chip
+            *ngFor="let category of category$ | async"
+            class="example-box"
+            color="primary"
+            [selected]="(selectCategory$ | async) === category.id"
+            (click)="onSelect(category.id)"
+          >
+            {{ category.name }}
+          </mat-chip>
+        </mat-chip-list>
+      </div> -->
+    </div>
+    <div class="top__card-area">
+      <div class="" *ngFor="let item of itemList; trackBy: trackCard">
+        <app-top-card [item]="item"></app-top-card>
+      </div>
+    </div>
+  </div>
+</div>

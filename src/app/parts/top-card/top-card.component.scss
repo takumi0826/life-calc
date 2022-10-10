@@ -1,0 +1,17 @@
+.card {
+  overflow: hidden;
+  &__title {
+    font-size: 22px;
+  }
+  &__subtitle {
+    font-size: 12px;
+  }
+  &__image {
+    border-radius: 100%;
+    object-fit: cover;
+    background: var(--base-background);
+  }
+  &__content {
+    word-break: break-word;
+  }
+}

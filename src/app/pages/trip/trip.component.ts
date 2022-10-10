@@ -14,7 +14,7 @@ import { AppService } from 'src/app/services/app.service';
   templateUrl: './trip.component.html',
   styleUrls: ['./trip.component.scss'],
 })
-export class TripComponent implements OnInit {
+export class TripComponent {
   people$ = new BehaviorSubject<number>(1);
   price$ = new BehaviorSubject<number>(10000);
   stay$ = new BehaviorSubject<number>(1);
@@ -58,10 +58,6 @@ export class TripComponent implements OnInit {
     map(([discount, coupon]) => discount + coupon)
   );
   constructor(private appService: AppService) {}
-
-  ngOnInit(): void {
-    this.appService.headerTitle.next(PageConst.TRIP);
-  }
 
   changePrice(price: number) {
     console.log(price);

@@ -5,6 +5,7 @@
   --sub-color: #484646;
   --base-background: white;
   --sub-background: #f2f1f1;
+  --base-border: #d2cdcd;
   --base-outline: 0, 0, 0, 0.12;
   --base-placeholder: 0, 0, 0, 0.4;
   --card-gradient: linear-gradient(-70deg, #a2facf 0%, #64acff 100%);
@@ -16,6 +17,7 @@
   --sub-color: #a1a4a8;
   --base-background: #202124;
   --sub-background: #2d2e31;
+  --base-border: #444549;
   --base-outline: 255, 255, 255, 0.12;
   --base-placeholder: 255, 255, 255, 0.4;
   --card-gradient: linear-gradient(
@@ -29,7 +31,14 @@
     rgba(49, 49, 55, 1) 100%
   );
 }
-
+.layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  .main {
+    flex: 1;
+  }
+}
 // *,
 // *::before,
 // *::after {
@@ -96,6 +105,7 @@ body {
   font-family: Roboto, 'Helvetica Neue', sans-serif;
   background-color: var(--base-background);
   color: var(--base-color);
+  overflow-y: scroll;
 }
 
 .mat-form-field-appearance-outline .mat-form-field-outline {
@@ -117,8 +127,22 @@ body {
 .mat-select-arrow {
   color: var(--base-color);
 }
+.gradient-text {
+  background: linear-gradient(-70deg, #64acff 0%, #a2facf 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-bg {
+  background: var(--card-gradient);
+}
+
 .container {
   padding: 0 16px;
   max-width: 600px;
   margin: 0 auto;
+}
+
+.title-lg {
+  border-bottom: 1px solid var(--base-border);
 }

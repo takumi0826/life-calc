@@ -2,6 +2,7 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AppService } from 'src/app/services/app.service';
 import { Title } from '@angular/platform-browser';
+import { PageConst } from 'src/app/constants/page.const';
 
 @Component({
   selector: 'app-header',
@@ -10,7 +11,7 @@ import { Title } from '@angular/platform-browser';
 })
 export class HeaderComponent implements OnInit {
   isDark$ = this.appService.isDark.asObservable();
-  title$ = this.appService.headerTitle;
+  title = PageConst.TOP;
   constructor(private appService: AppService, public dialog: MatDialog) {}
 
   ngOnInit() {
