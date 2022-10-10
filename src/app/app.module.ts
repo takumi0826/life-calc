@@ -18,6 +18,11 @@ import { TopCardComponent } from './parts/top-card/top-card.component';
 import { ThreePointLeaderPipe } from './pipes/three-point-leader.pipe';
 import { NgxScrollTopModule } from 'ngx-scrolltop';
 import { ScrollTopComponent } from './parts/scroll-top/scroll-top.component';
+import {
+  NgxGoogleAnalyticsModule,
+  NgxGoogleAnalyticsRouterModule,
+} from 'ngx-google-analytics';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -42,6 +47,8 @@ import { ScrollTopComponent } from './parts/scroll-top/scroll-top.component';
     HttpClientModule,
     ReactiveFormsModule,
     NgxScrollTopModule,
+    NgxGoogleAnalyticsModule.forRoot(environment.ga),
+    NgxGoogleAnalyticsRouterModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
