@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   // apiurl: 'http://localhost:3000/',
   // origin: 'http://localhost:4200/',
-  ga: 'G-V5T4NL8KT9',
+  ga: 'G-HC24LQ1N1R',
 };
 
 /*
