@@ -59,8 +59,26 @@ export class TripComponent {
   );
   constructor(private appService: AppService) {}
 
-  changePrice(price: number) {
-    console.log(price);
-    this.price$.next(price);
+  addPeople() {
+    const val = this.people$.getValue();
+    this.people$.next(val + 1);
+  }
+
+  removePeople() {
+    const val = this.people$.getValue();
+    if (val <= 1) return;
+    this.people$.next(val - 1);
+  }
+
+  addHoliday() {
+    const val = this.holiday$.getValue();
+    if (val >= this.stay$.getValue()) return;
+    this.holiday$.next(val + 1);
+  }
+
+  removeHoliday() {
+    const val = this.holiday$.getValue();
+    if (val <= 0) return;
+    this.holiday$.next(val - 1);
   }
 }

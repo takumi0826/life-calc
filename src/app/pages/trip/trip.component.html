@@ -2,16 +2,25 @@
   <div class="container">
     <div class="trip__block">
       <p class="trip__label">人数</p>
-      <mat-form-field appearance="fill">
-        <input
-          matInput
-          type="number"
-          [min]="1"
-          [ngModel]="people$ | async"
-          (ngModelChange)="people$.next($event)"
-        />
-        <span matSuffix>人</span>
-      </mat-form-field>
+      <div class="trip__counter">
+        <span>{{ people$ | async }}人</span>
+        <button
+          mat-icon-button
+          color="basic"
+          aria-label="add icon"
+          (click)="addPeople()"
+        >
+          <mat-icon>add</mat-icon>
+        </button>
+        <button
+          mat-icon-button
+          color="basic"
+          aria-label="remove icon"
+          (click)="removePeople()"
+        >
+          <mat-icon>remove</mat-icon>
+        </button>
+      </div>
       <p class="trip__label">旅行代金</p>
       <mat-form-field appearance="fill">
         <input
@@ -20,7 +29,7 @@
           [formControl]="priceControl"
           [min]="5000"
           [ngModel]="price$ | async"
-          (ngModelChange)="changePrice($event)"
+          (ngModelChange)="price$.next($event)"
         />
         <span matPrefix>¥&nbsp;</span>
         <mat-error *ngIf="priceControl.invalid"
@@ -43,17 +52,25 @@
         </mat-select>
       </mat-form-field>
       <p class="trip__label">休日・祝日の日数</p>
-      <mat-form-field appearance="fill">
-        <input
-          matInput
-          type="number"
-          [min]="0"
-          [max]="stay$ | async"
-          [ngModel]="holiday$ | async"
-          (ngModelChange)="holiday$.next($event)"
-        />
-        <span matSuffix>日</span>
-      </mat-form-field>
+      <div class="trip__counter">
+        <span>{{ holiday$ | async }}日</span>
+        <button
+          mat-icon-button
+          color="basic"
+          aria-label="add icon"
+          (click)="addHoliday()"
+        >
+          <mat-icon>add</mat-icon>
+        </button>
+        <button
+          mat-icon-button
+          color="basic"
+          aria-label="remove icon"
+          (click)="removeHoliday()"
+        >
+          <mat-icon>remove</mat-icon>
+        </button>
+      </div>
       <p class="trip__label">旅行の種類</p>
       <mat-radio-group
         [ngModel]="isTraffic$ | async"

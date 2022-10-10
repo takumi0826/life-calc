@@ -17,6 +17,15 @@
   &__section {
     margin-top: 80px;
   }
+
+  &__counter {
+    display: flex;
+    align-items: center;
+
+    & > span {
+      margin-right: 12px;
+    }
+  }
 }
 
 .calc-area {
