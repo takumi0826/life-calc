@@ -73,6 +73,7 @@
       </div>
       <p class="trip__label">旅行の種類</p>
       <mat-radio-group
+        class="trip__traffic"
         [ngModel]="isTraffic$ | async"
         (ngModelChange)="isTraffic$.next($event)"
       >
