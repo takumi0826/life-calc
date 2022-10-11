@@ -2,6 +2,7 @@ export type Content = {
   id: number;
   title: string;
   content: string;
+  link: string;
   category: Category;
 };
 

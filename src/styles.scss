@@ -149,3 +149,22 @@ body {
 .title-lg {
   border-bottom: 1px solid var(--base-border);
 }
+
+.calc-area {
+  font-size: 1rem;
+  margin-top: 60px;
+  padding: 40px 24px;
+  background-color: var(--sub-background);
+  border-radius: 8px;
+  &__text {
+    margin-bottom: 24px;
+  }
+  &__total {
+    font-size: 2rem;
+  }
+  &__title {
+    font-size: 1.6rem;
+    text-align: center;
+    margin-bottom: 40px !important;
+  }
+}

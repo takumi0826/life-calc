@@ -1,4 +1,4 @@
-<mat-card class="card gradient-bg" routerLink="/trip">
+<mat-card class="card gradient-bg" [routerLink]="item.link">
   <mat-card-title-group>
     <mat-card-title class="card__title" [title]="item.title">{{
       item.title | threePointLeader: 14
