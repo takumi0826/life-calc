@@ -1,12 +1,22 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { PageLinkConst } from './constants/page.const';
+import { IncomeComponent } from './pages/income/income.component';
 import { TopComponent } from './pages/top/top.component';
 import { TripComponent } from './pages/trip/trip.component';
 
 const routes: Routes = [
-  { path: '', component: TopComponent, title: 'ライフブック!' },
-  { path: 'trip', component: TripComponent, title: '全国旅行割シミュレーター' },
-  // { path: 'delete', component: DeleteDataComponent },
+  { path: PageLinkConst.TOP, component: TopComponent, title: 'ライフブック!' },
+  {
+    path: PageLinkConst.TRIP,
+    component: TripComponent,
+    title: '全国旅行割シミュレーター',
+  },
+  {
+    path: PageLinkConst.INCOME,
+    component: IncomeComponent,
+    title: '所得税シミュレーター',
+  },
 ];
 
 @NgModule({

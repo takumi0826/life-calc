@@ -1,0 +1,39 @@
+<div class="income">
+  <div class="container">
+    <h2>年収を入力してください</h2>
+    <mat-form-field appearance="fill">
+      <input
+        matInput
+        type="number"
+        [ngModel]="price$ | async"
+        (ngModelChange)="price$.next($event)"
+      />
+      <span matPrefix>¥&nbsp;</span>
+      <!-- <span matSuffix>万円</span> -->
+    </mat-form-field>
+    <div class="income__table">
+      <table>
+        <tr>
+          <th>所得控除額</th>
+          <td>{{ incomeDeduction$ | async | number }}円</td>
+        </tr>
+        <tr>
+          <th>基礎控除額</th>
+          <td>{{ basicDeduction$ | async | number }}円</td>
+        </tr>
+        <tr>
+          <th>課税所得金額</th>
+          <td>{{ income$ | async | number }}円</td>
+        </tr>
+      </table>
+    </div>
+    <div class="calc-area">
+      <p class="calc-area__title">結果</p>
+      <p>
+        所得税は約
+        <span class="calc-area__total">{{ incomeTax$ | async | number }}</span
+        >円です。
+      </p>
+    </div>
+  </div>
+</div>
