@@ -130,6 +130,9 @@ body {
 .mat-select-arrow {
   color: var(--base-color);
 }
+input.mat-input-element {
+  font-size: 1.2rem;
+}
 .gradient-text {
   background: linear-gradient(-70deg, #64acff 0%, #a2facf 100%);
   -webkit-background-clip: text;
