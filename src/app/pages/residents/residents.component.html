@@ -1,4 +1,4 @@
-<div class="income">
+<div class="residents">
   <div class="container">
     <h2>年収を入力してください</h2>
     <mat-form-field appearance="fill">
@@ -9,7 +9,6 @@
         (ngModelChange)="price$.next($event)"
       />
       <span matSuffix>円</span>
-      <!-- <span matSuffix>万円</span> -->
     </mat-form-field>
     <div class="income__table">
       <table>
@@ -30,23 +29,19 @@
     <div class="calc-area">
       <p class="calc-area__title">結果</p>
       <p>
-        所得税は約
-        <span class="calc-area__total">{{ incomeTax$ | async | number }}</span
+        住民税は約
+        <span class="calc-area__total">{{
+          residentsTax$ | async | number
+        }}</span
         >円です。
       </p>
     </div>
     <section class="section">
-      <h2 class="title-lg">所得税とは?</h2>
-      <p>所得税とは、1月1日から12月31日に得た所得に課される税金のことです。</p>
+      <h2 class="title-lg">住民税とは?</h2>
       <p>
-        所得とは、給与などで得た収入から給与所得控除や配偶者控除などの控除を差し引いた金額のことを指します。
+        住民税とは都道府県や市区町村が行なっている行政サービスを維持するために支払う税金です。
       </p>
-      <p>所得税を算出するには下記の3つを計算します。</p>
-      <ol>
-        <li>所得金額</li>
-        <li>課税所得金額</li>
-        <li>所得税額</li>
-      </ol>
+      <p>住民税の計算方法は課税所得に対して10%の金額となります。</p>
     </section>
   </div>
 </div>

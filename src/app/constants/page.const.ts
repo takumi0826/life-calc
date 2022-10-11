@@ -7,4 +7,5 @@ export class PageLinkConst {
   static readonly TOP = '';
   static readonly TRIP = 'trip';
   static readonly INCOME = 'income';
+  static readonly RESIDENTS = 'residents';
 }

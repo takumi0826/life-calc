@@ -24,6 +24,7 @@ import {
 } from 'ngx-google-analytics';
 import { environment } from 'src/environments/environment';
 import { IncomeComponent } from './pages/income/income.component';
+import { ResidentsComponent } from './pages/residents/residents.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { IncomeComponent } from './pages/income/income.component';
     ThreePointLeaderPipe,
     ScrollTopComponent,
     IncomeComponent,
+    ResidentsComponent,
   ],
   imports: [
     BrowserModule,
