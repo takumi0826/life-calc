@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PageLinkConst } from './constants/page.const';
 import { IncomeComponent } from './pages/income/income.component';
+import { ResidentsComponent } from './pages/residents/residents.component';
 import { TopComponent } from './pages/top/top.component';
 import { TripComponent } from './pages/trip/trip.component';
 
@@ -16,6 +17,11 @@ const routes: Routes = [
     path: PageLinkConst.INCOME,
     component: IncomeComponent,
     title: '所得税シミュレーター',
+  },
+  {
+    path: PageLinkConst.RESIDENTS,
+    component: ResidentsComponent,
+    title: '住民税シミュレーター',
   },
 ];
 

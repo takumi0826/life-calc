@@ -47,9 +47,6 @@ export class TaxService {
   /** 所得税 */
   getIncomeTax(value: number) {
     const amount = this.getIncome(value);
-    console.log(`所得控除額: ${this.getIncomeDeduction(value)}`);
-    console.log(`基礎控除額: ${this.getBasicDeduction(value)}`);
-    console.log(`所得金額: ${amount}`);
 
     if (amount <= 1949000) {
       return amount * 0.05;
@@ -66,5 +63,11 @@ export class TaxService {
     } else {
       return amount * 0.45 - 4796000;
     }
+  }
+
+  /** 住民税 */
+  getResidentsTax(value: number) {
+    const amount = this.getIncome(value);
+    return amount * 0.1;
   }
 }

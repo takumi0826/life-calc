@@ -34,4 +34,15 @@ export const contents: Content[] = [
       name: 'b',
     },
   },
+  {
+    id: 3,
+    title: '住民税シミュレーター',
+    content:
+      '年収から住民税を計算するシミュレーターです。実際の税額とは異なる場合があります。目安としてご利用ください。',
+    link: PageLinkConst.RESIDENTS,
+    category: {
+      id: 1,
+      name: 'b',
+    },
+  },
 ];
