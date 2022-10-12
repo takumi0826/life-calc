@@ -32,8 +32,6 @@ export class TripComponent {
     distinctUntilChanged(),
     map(([people, price, isTraffic, stay]) => {
       const m = (price / people / stay) * 0.4;
-      console.log(m);
-
       const limit = isTraffic ? 8000 : 5000;
       return m > limit
         ? Math.floor((limit * stay * people) / 100) * 100

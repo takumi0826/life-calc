@@ -1,5 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { BehaviorSubject, filter, debounceTime, map } from 'rxjs';
+import {
+  BehaviorSubject,
+  filter,
+  debounceTime,
+  map,
+  combineLatest,
+  withLatestFrom,
+} from 'rxjs';
 import { TaxService } from 'src/app/services/tax.service';
 
 @Component({
@@ -8,27 +15,46 @@ import { TaxService } from 'src/app/services/tax.service';
   styleUrls: ['./residents.component.scss'],
 })
 export class ResidentsComponent {
+  /** 年収 */
   readonly price$ = new BehaviorSubject<number>(3000000);
-  readonly transPrice$ = this.price$.pipe(
-    filter((val) => Number.isInteger(val)),
+  /** 所得控除 */
+  readonly otherDeduction$ = new BehaviorSubject<number>(0);
+  readonly transPrice$ = combineLatest([
+    this.price$,
+    this.otherDeduction$,
+  ]).pipe(
+    filter(
+      ([val, deduction]) => Number.isInteger(val) && Number.isInteger(deduction)
+    ),
     debounceTime(300),
-    map((val) => Math.ceil(val))
+    map(([val, deduction]) => [val, deduction])
   );
-  /** 所得控除額 */
+  /** 給与所得控除額 */
   readonly incomeDeduction$ = this.transPrice$.pipe(
-    map((val) => Math.ceil(this.taxService.getIncomeDeduction(val)))
+    map(([val]) => Math.floor(this.taxService.getGrossIncomeDeduction(val)))
   );
   /** 基礎控除 */
   readonly basicDeduction$ = this.transPrice$.pipe(
-    map((val) => Math.ceil(this.taxService.getBasicDeduction(val)))
+    map(([val]) => Math.floor(this.taxService.getBasicDeduction(val, true)))
   );
-  /** 所得金額 */
+  /** 給与所得 */
+  readonly grossIncome$ = this.transPrice$.pipe(
+    map(([val]) => Math.floor(this.taxService.getGrossIncome(val)))
+  );
+  /** 課税所得金額 */
   readonly income$ = this.transPrice$.pipe(
-    map((val) => Math.ceil(this.taxService.getIncome(val)))
+    map(([val, deduction]) =>
+      Math.floor(this.taxService.getIncome(val, deduction, true))
+    )
   );
   /** 住民税 */
-  readonly residentsTax$ = this.transPrice$.pipe(
-    map((val) => Math.ceil(this.taxService.getResidentsTax(val)))
+  readonly residentsTax$ = this.income$.pipe(
+    map((income) => Math.floor(this.taxService.getResidentsTax(income)))
   );
+  // /** ふるさと納税 */
+  // readonly getHometownTax$ = this.transPrice$.pipe(
+  //   map(([val]) => Math.floor(this.taxService.getHometownTax(val)))
+  // );
+
   constructor(private taxService: TaxService) {}
 }

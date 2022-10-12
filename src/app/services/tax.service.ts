@@ -6,68 +6,139 @@ import { Injectable } from '@angular/core';
 export class TaxService {
   constructor() {}
 
-  /** 所得控除額 */
-  getIncomeDeduction(value: number) {
+  /**
+   * 給与所得控除額
+   * @param value 年収
+   */
+  getGrossIncomeDeduction(value: number) {
     if (!value) return 0;
-    if (value <= 1625000) {
-      return 550000;
-    } else if (value >= 1625001 && value <= 1800000) {
-      return value * 0.4 + 100000;
-    } else if (value >= 1800001 && value <= 3600000) {
-      return value * 0.3 + 80000;
-    } else if (value >= 3600001 && value <= 6600000) {
-      return value * 0.2 + 440000;
-    } else if (value >= 6600001 && value <= 8500000) {
-      return value * 0.1 + 1100000;
-    } else {
-      return 1950000;
-    }
+    // if (value <= 1625000) {
+    //   return 550000;
+    // } else if (value >= 1625001 && value <= 1800000) {
+    //   return Math.floor(value * 0.4) + 100000;
+    // } else if (value >= 1800001 && value <= 3600000) {
+    //   return Math.floor(value * 0.3) + 80000;
+    // } else if (value >= 3600001 && value <= 6600000) {
+    //   return Math.floor(value * 0.2) + 440000;
+    // } else if (value >= 6600001 && value <= 8500000) {
+    //   return Math.floor(value * 0.1) + 1100000;
+    // } else {
+    //   return 1950000;
+    // }
+    return value - this.getGrossIncome(value);
   }
 
-  /** 基礎控除 */
-  getBasicDeduction(value: number) {
+  /**
+   * 基礎控除
+   * @param value 年収
+   *  */
+  getBasicDeduction(value: number, isResidentsTax: boolean) {
     if (value <= 24000000) {
-      return 480000;
+      const tax = isResidentsTax ? 50000 : 0;
+      return 480000 - tax;
     } else if (value >= 24000001 && value <= 24500000) {
-      return 320000;
+      const tax = isResidentsTax ? 30000 : 0;
+      return 320000 - tax;
     } else if (value >= 24500001 && value <= 25000000) {
-      return 160000;
+      const tax = isResidentsTax ? 10000 : 0;
+      return 160000 - tax;
     } else {
       return 0;
     }
   }
 
-  /** 所得金額 */
-  getIncome(value: number) {
-    const m =
-      value - this.getIncomeDeduction(value) - this.getBasicDeduction(value);
-    return m > 0 ? m : 0;
-  }
-
-  /** 所得税 */
-  getIncomeTax(value: number) {
-    const amount = this.getIncome(value);
-
-    if (amount <= 1949000) {
-      return amount * 0.05;
-    } else if (amount >= 1950000 && amount < 3300000) {
-      return amount * 0.1 - 97500;
-    } else if (amount >= 3300000 && amount < 6950000) {
-      return amount * 0.2 - 427500;
-    } else if (amount >= 6950000 && amount < 9000000) {
-      return amount * 0.23 - 636000;
-    } else if (amount >= 9000000 && amount < 18000000) {
-      return amount * 0.33 - 1536000;
-    } else if (amount >= 18000000 && amount < 40000000) {
-      return amount * 0.4 - 2796000;
+  /**
+   * 給与所得
+   * @param value 年収
+   * */
+  getGrossIncome(value: number) {
+    if (!value) return 0;
+    if (value >= 1 && value <= 550999) {
+      return 0;
+    } else if (value >= 551000 && value <= 1618999) {
+      return value - 550000;
+    } else if (value >= 1619000 && value <= 1619999) {
+      return 1069000;
+    } else if (value >= 1622000 && value <= 1621999) {
+      return 1070000;
+    } else if (value >= 1624000 && value <= 1627999) {
+      return 1074000;
+    } else if (value >= 1628000 && value <= 1799999) {
+      const b = value / 4;
+      return Math.floor(b / 1000) * 1000 * 2.4 + 100000;
+    } else if (value >= 1800000 && value <= 3599999) {
+      const b = value / 4;
+      return Math.floor(b / 1000) * 1000 * 2.8 - 80000;
+    } else if (value >= 3600000 && value <= 6599999) {
+      const b = value / 4;
+      return Math.floor(b / 1000) * 1000 * 3.2 - 440000;
+    } else if (value >= 6600000 && value <= 8499999) {
+      return value * 0.9 - 1100000;
     } else {
-      return amount * 0.45 - 4796000;
+      return value - 1950000;
     }
   }
 
-  /** 住民税 */
+  /**
+   * 課税対象所得
+   * @param value 年収
+   * @param deduction 所得控除
+   * @param isResidentsTax 住民税か
+   */
+  getIncome(value: number, deduction: number, isResidentsTax: boolean) {
+    // 給与所得 - 所得控除
+    const m =
+      this.getGrossIncome(value) -
+      (deduction + this.getBasicDeduction(value, isResidentsTax));
+    return m > 0 ? Math.floor(m / 1000) * 1000 : 0;
+  }
+
+  /**
+   * 所得税
+   * @param value 課税対象所得
+   * */
+  getIncomeTax(value: number) {
+    if (value < 1950000) {
+      return value * 0.05;
+    } else if (value >= 1950000 && value < 3300000) {
+      return value * 0.1 - 97500;
+    } else if (value >= 3300000 && value < 6950000) {
+      return value * 0.2 - 427500;
+    } else if (value >= 6950000 && value < 9000000) {
+      return value * 0.23 - 636000;
+    } else if (value >= 9000000 && value < 18000000) {
+      return value * 0.33 - 1536000;
+    } else if (value >= 18000000 && value < 40000000) {
+      return value * 0.4 - 2796000;
+    } else {
+      return value * 0.45 - 4796000;
+    }
+  }
+
+  /**
+   * 復興特別所得税
+   * @param value 年収
+   * */
+  getSpecialIncomeTax(value: number) {
+    return this.getIncomeTax(value) * 0.021;
+  }
+
+  /**
+   * 住民税
+   * @param value 課税対象所得
+   * */
   getResidentsTax(value: number) {
-    const amount = this.getIncome(value);
-    return amount * 0.1;
+    const equality = value <= 450000 ? 0 : 5000;
+    return value * 0.1 + equality;
+  }
+
+  /**
+   * ふるさと納税
+   * @param value 課税対象所得
+   * */
+  getHometownTax(value: number) {
+    //住民税所得割額
+    const tax = this.getResidentsTax(value) - 5000;
+    return tax * 0.23559 + 2000;
   }
 }

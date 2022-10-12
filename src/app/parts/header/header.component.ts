@@ -9,14 +9,10 @@ import { PageConst } from 'src/app/constants/page.const';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
   isDark$ = this.appService.isDark.asObservable();
   title = PageConst.TOP;
   constructor(private appService: AppService, public dialog: MatDialog) {}
-
-  ngOnInit() {
-    console.log();
-  }
 
   changeMode() {
     this.appService.isDark.next(!this.appService.isDark.getValue());
