@@ -128,8 +128,9 @@ export class TaxService {
    * @param value 課税対象所得
    * */
   getResidentsTax(value: number) {
-    const equality = value <= 450000 ? 0 : 5000;
-    return value * 0.1 + equality;
+    // const equality = value <= 450000 ? 0 : 5000;
+    // return value * 0.1 + equality;
+    return value * 0.1;
   }
 
   /**
