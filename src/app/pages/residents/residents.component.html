@@ -10,19 +10,37 @@
       />
       <span matSuffix>円</span>
     </mat-form-field>
-    <div class="income__table">
+    <p class="residents__label">所得控除</p>
+    <mat-form-field appearance="fill">
+      <input
+        matInput
+        type="number"
+        [ngModel]="otherDeduction$ | async"
+        (ngModelChange)="otherDeduction$.next($event)"
+      />
+      <span matSuffix>円</span>
+    </mat-form-field>
+    <div class="residents__table">
       <table>
         <tr>
           <th>所得控除額</th>
-          <td>{{ incomeDeduction$ | async | number }}円</td>
+          <td>{{ (otherDeduction$ | async | number) || 0 }}円</td>
         </tr>
         <tr>
           <th>基礎控除額</th>
           <td>{{ basicDeduction$ | async | number }}円</td>
         </tr>
         <tr>
+          <th>給与所得控除額</th>
+          <td>{{ incomeDeduction$ | async | number }}円</td>
+        </tr>
+        <tr>
           <th>課税所得金額</th>
           <td>{{ income$ | async | number }}円</td>
+        </tr>
+        <tr>
+          <th>給与所得</th>
+          <td>{{ grossIncome$ | async | number }}円</td>
         </tr>
       </table>
     </div>
