@@ -34,8 +34,8 @@ export class TripComponent {
       const m = (price / people / stay) * 0.4;
       const limit = isTraffic ? 8000 : 5000;
       return m > limit
-        ? Math.floor((limit * stay * people) / 100) * 100
-        : Math.floor((m * stay * people) / 100) * 100;
+        ? Math.floor((limit * stay * people) / 10) * 10
+        : Math.floor((m * stay * people) / 10) * 10;
     })
   );
   // 地域クーポン
