@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { BehaviorSubject, combineLatest, Observable, of, Subject } from 'rxjs';
 import {
   filter,
@@ -18,12 +18,14 @@ import { Content } from 'src/app/types/type';
   styleUrls: ['./top.component.scss'],
 })
 export class TopComponent implements OnInit {
-  constructor(private topService: TopService, private appService: AppService) {}
-
   itemList: Content[] = [];
+  loading$ = new BehaviorSubject<boolean>(true);
+
+  constructor(private topService: TopService) {}
 
   ngOnInit(): void {
     this.itemList = this.topService.getContents();
+    this.loading$.next(false);
   }
 
   // /** カテゴリボタン押下 */

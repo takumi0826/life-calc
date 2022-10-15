@@ -9,8 +9,8 @@
     <img
       class="card__image"
       mat-card-sm-image
-      src="/assets/img/{{ cardImage }}"
-      alt="動物の画像"
+      [src]="'assets/img/' + item.img.src"
+      [alt]="item.img.alt"
       loading="lazy"
     />
   </mat-card-title-group>

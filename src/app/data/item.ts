@@ -22,16 +22,24 @@ export const contents: Content[] = [
       id: 1,
       name: 'a',
     },
+    img: {
+      src: '',
+      alt: '動物の画像',
+    },
   },
   {
     id: 2,
     title: '所得税シミュレーター',
     content:
-      '年収から所得税を計算するシミュレーターです。簡易版のため実際の税額とは異なる場合があります。目安としてご利用ください。',
+      '年収から所得税を計算するシミュレーターです。実際の税額とは異なる場合があります。目安としてご利用ください。',
     link: PageLinkConst.INCOME,
     category: {
       id: 1,
       name: 'b',
+    },
+    img: {
+      src: '',
+      alt: '動物の画像',
     },
   },
   {
@@ -43,6 +51,10 @@ export const contents: Content[] = [
     category: {
       id: 1,
       name: 'b',
+    },
+    img: {
+      src: '',
+      alt: '動物の画像',
     },
   },
 ];
