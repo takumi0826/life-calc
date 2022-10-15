@@ -7,11 +7,10 @@ import { Content } from '../types/type';
 })
 export class TopService {
   getContents(): Content[] {
-    return contents;
-  }
-  public getItemImage() {
-    const randam = Math.floor(Math.random() * itemImage.length);
-    const image = itemImage[randam];
-    return image;
+    return contents.map((c) => {
+      const randam = Math.floor(Math.random() * itemImage.length);
+      c.img.src = itemImage[randam];
+      return c;
+    });
   }
 }

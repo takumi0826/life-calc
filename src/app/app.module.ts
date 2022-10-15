@@ -25,6 +25,8 @@ import {
 import { environment } from 'src/environments/environment';
 import { IncomeComponent } from './pages/income/income.component';
 import { ResidentsComponent } from './pages/residents/residents.component';
+import { LoadingComponent } from './parts/loading/loading.component';
+import { ImageLoadDirective } from './directive/image-load.directive';
 
 @NgModule({
   declarations: [
@@ -41,6 +43,8 @@ import { ResidentsComponent } from './pages/residents/residents.component';
     ScrollTopComponent,
     IncomeComponent,
     ResidentsComponent,
+    LoadingComponent,
+    ImageLoadDirective,
   ],
   imports: [
     BrowserModule,

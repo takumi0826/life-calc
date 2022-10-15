@@ -4,6 +4,10 @@ export type Content = {
   content: string;
   link: string;
   category: Category;
+  img: {
+    src: string;
+    alt: string;
+  };
 };
 
 export type Category = {
