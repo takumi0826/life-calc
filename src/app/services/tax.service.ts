@@ -134,12 +134,35 @@ export class TaxService {
   }
 
   /**
+   * 健康保険料
+   * @param value 年収
+   * */
+  getHealthInsurance(value: number) {
+    return (value * 0.0981) / 2;
+  }
+
+  /**
+   * 厚生年金保険料
+   * @param value 年収
+   * */
+  getWelfarePension(value: number) {
+    return (value * 0.183) / 2;
+  }
+
+  /**
+   * 社会保険料
+   * @param value 年収
+   * */
+  getSocialInsurance(value: number) {
+    return this.getHealthInsurance(value) + this.getWelfarePension(value);
+  }
+
+  /**
    * ふるさと納税
-   * @param value 課税対象所得
+   * @param value 住民税
    * */
   getHometownTax(value: number) {
-    //住民税所得割額
-    const tax = this.getResidentsTax(value) - 5000;
-    return tax * 0.23559 + 2000;
+    const tax = (value - 5000) * 0.23559 + 2000;
+    return Math.floor(tax / 1) * 1;
   }
 }

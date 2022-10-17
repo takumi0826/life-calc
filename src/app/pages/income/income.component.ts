@@ -21,7 +21,9 @@ export class IncomeComponent {
     this.price$,
     this.otherDeduction$,
   ]).pipe(
-    filter(([val]) => Number.isInteger(val)),
+    filter(
+      ([val, deduction]) => Number.isInteger(val) && Number.isInteger(deduction)
+    ),
     debounceTime(300),
     map(([val, deduction]) => [val, deduction])
   );
@@ -50,4 +52,11 @@ export class IncomeComponent {
     })
   );
   constructor(private taxService: TaxService) {}
+
+  autoDeduction() {
+    const val = Math.floor(
+      this.taxService.getSocialInsurance(this.price$.getValue())
+    );
+    this.otherDeduction$.next(val);
+  }
 }

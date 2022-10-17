@@ -17,7 +17,7 @@ export const contents: Content[] = [
     title: '全国旅行割シミュレーター',
     content:
       '全国旅行支援が2022/10/11からスタートします。いくらお得になるのかが分かるツールを使用して計算してみよう！※終了予定は12月下旬まで',
-    link: PageLinkConst.TRIP,
+    link: `/${PageLinkConst.TRIP}`,
     category: {
       id: 1,
       name: 'a',
@@ -32,7 +32,7 @@ export const contents: Content[] = [
     title: '所得税シミュレーター',
     content:
       '年収から所得税を計算するシミュレーターです。実際の税額とは異なる場合があります。目安としてご利用ください。',
-    link: PageLinkConst.INCOME,
+    link: `/${PageLinkConst.INCOME}`,
     category: {
       id: 1,
       name: 'b',
@@ -42,12 +42,26 @@ export const contents: Content[] = [
       alt: '動物の画像',
     },
   },
+  // {
+  //   id: 3,
+  //   title: 'タクシー料金　計算',
+  //   content: '距離(km)を入力すると料金を算出します。',
+  //   link: PageLinkConst.TAXI,
+  //   category: {
+  //     id: 1,
+  //     name: 'b',
+  //   },
+  //   img: {
+  //     src: '',
+  //     alt: '動物の画像',
+  //   },
+  // },
   {
-    id: 3,
+    id: 4,
     title: '住民税シミュレーター',
     content:
       '年収から住民税を計算するシミュレーターです。実際の税額とは異なる場合があります。目安としてご利用ください。',
-    link: PageLinkConst.RESIDENTS,
+    link: `/${PageLinkConst.RESIDENTS}`,
     category: {
       id: 1,
       name: 'b',
@@ -57,4 +71,19 @@ export const contents: Content[] = [
       alt: '動物の画像',
     },
   },
+  // {
+  //   id: 4,
+  //   title: 'ふるさと納税 上限額シミュレーター',
+  //   content:
+  //     '年収からふるさと納税の上限額を計算するシミュレーターです。目安としてご利用ください。',
+  //   link: PageLinkConst.RESIDENTS,
+  //   category: {
+  //     id: 1,
+  //     name: 'b',
+  //   },
+  //   img: {
+  //     src: '',
+  //     alt: '動物の画像',
+  //   },
+  // },
 ];

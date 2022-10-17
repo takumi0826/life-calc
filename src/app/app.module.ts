@@ -12,7 +12,6 @@ import { FooterComponent } from './parts/footer/footer.component';
 import { SideNavComponent } from './parts/side-nav/side-nav.component';
 import { MaterialModule } from './material/material.module';
 import { HttpClientModule } from '@angular/common/http';
-import { BaseComponent } from './pages/base/base.component';
 import { CheckLengthPipe } from './pipes/check-length.pipe';
 import { TopCardComponent } from './parts/top-card/top-card.component';
 import { ThreePointLeaderPipe } from './pipes/three-point-leader.pipe';
@@ -27,6 +26,7 @@ import { IncomeComponent } from './pages/income/income.component';
 import { ResidentsComponent } from './pages/residents/residents.component';
 import { LoadingComponent } from './parts/loading/loading.component';
 import { ImageLoadDirective } from './directive/image-load.directive';
+import { TaxiComponent } from './pages/taxi/taxi.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +36,6 @@ import { ImageLoadDirective } from './directive/image-load.directive';
     HeaderComponent,
     FooterComponent,
     SideNavComponent,
-    BaseComponent,
     CheckLengthPipe,
     TopCardComponent,
     ThreePointLeaderPipe,
@@ -45,6 +44,7 @@ import { ImageLoadDirective } from './directive/image-load.directive';
     ResidentsComponent,
     LoadingComponent,
     ImageLoadDirective,
+    TaxiComponent,
   ],
   imports: [
     BrowserModule,

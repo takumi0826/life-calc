@@ -1,4 +1,4 @@
-<div class="income">
+<div class="page income">
   <div class="container">
     <h2>年収を入力してください</h2>
     <mat-form-field appearance="fill">
@@ -10,7 +10,17 @@
       />
       <span matSuffix>円</span>
     </mat-form-field>
-    <p class="income__label">所得控除</p>
+    <p class="income__label">
+      <span>所得控除額</span>
+      <button
+        class="auto-button"
+        mat-flat-button
+        color="primary"
+        (click)="autoDeduction()"
+      >
+        自動入力
+      </button>
+    </p>
     <mat-form-field appearance="fill">
       <input
         matInput

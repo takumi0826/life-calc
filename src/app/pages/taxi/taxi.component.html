@@ -1,0 +1,36 @@
+<div class="page taxi">
+  <div class="container">
+    <h2>距離を入力してください</h2>
+    <mat-form-field appearance="fill">
+      <input
+        matInput
+        type="number"
+        [ngModel]="distance$ | async"
+        (ngModelChange)="distance$.next($event)"
+      />
+      <span matSuffix>km</span>
+    </mat-form-field>
+    <div class="calc-area">
+      <p class="calc-area__title">結果</p>
+      <p>
+        タクシー料金は約
+        <span class="calc-area__total">{{ price$ | async | number }}</span
+        >円です。
+      </p>
+    </div>
+    <section class="section">
+      <h2 class="title-lg">料金計算方法</h2>
+      <p>所得税とは、1月1日から12月31日に得た所得に課される税金のことです。</p>
+      <p>
+        所得とは、給与などで得た収入から給与所得控除や配偶者控除などの控除を差し引いた金額のことを指します。
+      </p>
+      <p>所得税を算出するには下記の3つを計算します。</p>
+      <ol>
+        <li>所得金額</li>
+        <li>課税所得金額</li>
+        <li>所得税額</li>
+      </ol>
+      <p>※実際の料金とは異なる場合があります。目安としてご利用ください。</p>
+    </section>
+  </div>
+</div>

@@ -57,4 +57,11 @@ export class ResidentsComponent {
   // );
 
   constructor(private taxService: TaxService) {}
+
+  autoDeduction() {
+    const val = Math.floor(
+      this.taxService.getSocialInsurance(this.price$.getValue())
+    );
+    this.otherDeduction$.next(val);
+  }
 }

@@ -1,5 +1,4 @@
 .income {
-  padding-top: 60px;
   &__label {
     margin-top: 24px;
   }
@@ -18,4 +17,8 @@
       color: var(--base-color);
     }
   }
+}
+
+.auto-button {
+  margin-left: 24px;
 }
