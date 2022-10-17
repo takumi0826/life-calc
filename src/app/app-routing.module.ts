@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { PageLinkConst } from './constants/page.const';
 import { IncomeComponent } from './pages/income/income.component';
 import { ResidentsComponent } from './pages/residents/residents.component';
+import { TaxiComponent } from './pages/taxi/taxi.component';
 import { TopComponent } from './pages/top/top.component';
 import { TripComponent } from './pages/trip/trip.component';
 
@@ -18,11 +19,17 @@ const routes: Routes = [
     component: IncomeComponent,
     title: '所得税シミュレーター',
   },
+  // {
+  //   path: PageLinkConst.TAXI,
+  //   component: TaxiComponent,
+  //   title: 'タクシー料金 計算',
+  // },
   {
     path: PageLinkConst.RESIDENTS,
     component: ResidentsComponent,
     title: '住民税シミュレーター',
   },
+  { path: '**', component: TopComponent, title: 'ライフブック!' },
 ];
 
 @NgModule({
