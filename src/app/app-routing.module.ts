@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PageLinkConst } from './constants/page.const';
+import { NengoComponent } from './pages/nengo/nengo.component';
 import { IncomeComponent } from './pages/income/income.component';
 import { ResidentsComponent } from './pages/residents/residents.component';
 import { TaxiComponent } from './pages/taxi/taxi.component';
@@ -29,11 +30,16 @@ const routes: Routes = [
     component: ResidentsComponent,
     title: '住民税シミュレーター',
   },
+  {
+    path: PageLinkConst.NENGO,
+    component: NengoComponent,
+    title: '和暦西暦　早見表',
+  },
   { path: '**', component: TopComponent, title: 'ライフブック!' },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { scrollPositionRestoration: 'top' })],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

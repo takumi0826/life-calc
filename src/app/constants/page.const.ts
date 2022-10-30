@@ -9,4 +9,5 @@ export class PageLinkConst {
   static readonly INCOME = 'income';
   static readonly RESIDENTS = 'residents';
   static readonly TAXI = 'taxi';
+  static readonly NENGO = 'nengo';
 }

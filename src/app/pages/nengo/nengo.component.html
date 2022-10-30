@@ -1,0 +1,44 @@
+<div class="page nengo">
+  <div class="container">
+    <div class="nengo__block">
+      <h2 class="nengo__label">年号を選択してください</h2>
+      <mat-radio-group
+        [ngModel]="nengoSelect$ | async"
+        (ngModelChange)="nengoSelect$.next($event)"
+      >
+        <mat-radio-button class="nengo__radio" [value]="1"
+          >昭和</mat-radio-button
+        >
+        <mat-radio-button class="nengo__radio" [value]="2"
+          >平成</mat-radio-button
+        >
+        <mat-radio-button class="nengo__radio" [value]="3"
+          >令和</mat-radio-button
+        >
+      </mat-radio-group>
+      <div class="nengo__table">
+        <table class="table">
+          <tr>
+            <th>和暦</th>
+            <th>西暦</th>
+          </tr>
+          <tr *ngFor="let item of yearArray$ | async">
+            <td>{{ item | warekiDisplay: nengoSelect$.getValue() }}</td>
+            <td>{{ item | seirekiDisplay: nengoSelect$.getValue() }}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <section class="section">
+      <h2 class="title-lg">年号の計算方法</h2>
+      <ul>
+        <li>昭和元年(1926年)～昭和64年(1989年)</li>
+        <li>平成元年(1989年)～平成31年(2019年)</li>
+        <li>令和元年(2019年)～</li>
+      </ul>
+      <p>昭和は西暦から25を引くことで算出できます。</p>
+      <p>平成は西暦から12を足すことで算出できます。</p>
+      <p>令和は西暦から18を引くことで算出できます。</p>
+    </section>
+  </div>
+</div>

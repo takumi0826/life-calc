@@ -27,6 +27,9 @@ import { ResidentsComponent } from './pages/residents/residents.component';
 import { LoadingComponent } from './parts/loading/loading.component';
 import { ImageLoadDirective } from './directive/image-load.directive';
 import { TaxiComponent } from './pages/taxi/taxi.component';
+import { NengoComponent } from './pages/nengo/nengo.component';
+import { WarekiDisplayPipe } from './pipes/wareki-display.pipe';
+import { SeirekiDisplayPipe } from './pipes/seireki-display.pipe';
 
 @NgModule({
   declarations: [
@@ -45,6 +48,9 @@ import { TaxiComponent } from './pages/taxi/taxi.component';
     LoadingComponent,
     ImageLoadDirective,
     TaxiComponent,
+    NengoComponent,
+    WarekiDisplayPipe,
+    SeirekiDisplayPipe,
   ],
   imports: [
     BrowserModule,
