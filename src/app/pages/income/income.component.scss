@@ -2,21 +2,6 @@
   &__label {
     margin-top: 24px;
   }
-  table {
-    width: 100%;
-    background-color: var(--base-background);
-    border-collapse: collapse;
-    th {
-      font-weight: normal;
-    }
-    th,
-    td {
-      padding: 12px;
-      border: solid 1px var(--base-border);
-      text-align: left;
-      color: var(--base-color);
-    }
-  }
 }
 
 .auto-button {
