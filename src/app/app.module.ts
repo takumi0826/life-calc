@@ -30,6 +30,7 @@ import { TaxiComponent } from './pages/taxi/taxi.component';
 import { NengoComponent } from './pages/nengo/nengo.component';
 import { WarekiDisplayPipe } from './pipes/wareki-display.pipe';
 import { SeirekiDisplayPipe } from './pipes/seireki-display.pipe';
+import { VegetableComponent } from './pages/vegetable/vegetable.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { SeirekiDisplayPipe } from './pipes/seireki-display.pipe';
     NengoComponent,
     WarekiDisplayPipe,
     SeirekiDisplayPipe,
+    VegetableComponent,
   ],
   imports: [
     BrowserModule,

@@ -7,6 +7,7 @@ import { ResidentsComponent } from './pages/residents/residents.component';
 import { TaxiComponent } from './pages/taxi/taxi.component';
 import { TopComponent } from './pages/top/top.component';
 import { TripComponent } from './pages/trip/trip.component';
+import { VegetableComponent } from './pages/vegetable/vegetable.component';
 
 const routes: Routes = [
   { path: PageLinkConst.TOP, component: TopComponent, title: 'ライフブック!' },
@@ -34,6 +35,11 @@ const routes: Routes = [
     path: PageLinkConst.NENGO,
     component: NengoComponent,
     title: '和暦西暦　早見表',
+  },
+  {
+    path: PageLinkConst.VEGETABLE,
+    component: VegetableComponent,
+    title: '野菜保存方法・期限　早見表',
   },
   { path: '**', component: TopComponent, title: 'ライフブック!' },
 ];
