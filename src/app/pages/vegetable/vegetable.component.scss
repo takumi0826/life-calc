@@ -1,0 +1,11 @@
+.vegetable {
+  &__title {
+    text-align: center;
+  }
+  &__table {
+    overflow-x: scroll;
+    & > table {
+      white-space: nowrap;
+    }
+  }
+}

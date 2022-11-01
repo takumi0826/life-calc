@@ -87,6 +87,21 @@ export const contents: Content[] = [
       alt: '動物の画像',
     },
   },
+  {
+    id: 6,
+    title: '野菜保存方法・期限　早見表',
+    content:
+      '野菜の保存方法・期限早見表です。保存方法、保存期限などを一覧で確認できます。目安としてご利用ください。',
+    link: `/${PageLinkConst.VEGETABLE}`,
+    category: {
+      id: 1,
+      name: 'b',
+    },
+    img: {
+      src: '',
+      alt: '動物の画像',
+    },
+  },
   // {
   //   id: 4,
   //   title: 'ふるさと納税 上限額シミュレーター',
