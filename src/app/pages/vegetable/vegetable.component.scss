@@ -3,9 +3,11 @@
     text-align: center;
   }
   &__table {
+    margin-top: 32px;
     overflow-x: scroll;
     & > table {
       white-space: nowrap;
+      font-size: 1rem;
     }
   }
 }
