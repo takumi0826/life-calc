@@ -2,6 +2,8 @@
   background: var(--header-gradient);
   &__title {
     margin: 0 auto;
+    display: flex;
+    align-items: center;
     font-size: 1rem;
 
     &--small {
@@ -18,4 +20,11 @@
 
 .mat-toolbar {
   font-family: inherit;
+}
+
+.book-icon {
+  width: 24px;
+  height: 24px;
+  opacity: 1;
+  margin-left: 2px;
 }
