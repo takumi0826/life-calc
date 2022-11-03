@@ -11,7 +11,6 @@ import { PageConst } from 'src/app/constants/page.const';
 })
 export class HeaderComponent {
   isDark$ = this.appService.isDark.asObservable();
-  title = PageConst.TOP;
   constructor(private appService: AppService, public dialog: MatDialog) {}
 
   changeMode() {
