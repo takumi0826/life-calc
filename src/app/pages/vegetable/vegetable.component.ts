@@ -26,6 +26,12 @@ export class VegetableComponent {
       frozen: '1ヶ月',
     },
     {
+      name: 'ネギ',
+      keep: '冷蔵',
+      limit: '5日',
+      frozen: '1ヶ月',
+    },
+    {
       name: 'ニラ',
       keep: '冷蔵',
       limit: '3～4日',
