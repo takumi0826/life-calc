@@ -102,19 +102,18 @@ export const contents: Content[] = [
       alt: '動物の画像',
     },
   },
-  // {
-  //   id: 4,
-  //   title: 'ふるさと納税 上限額シミュレーター',
-  //   content:
-  //     '年収からふるさと納税の上限額を計算するシミュレーターです。目安としてご利用ください。',
-  //   link: PageLinkConst.RESIDENTS,
-  //   category: {
-  //     id: 1,
-  //     name: 'b',
-  //   },
-  //   img: {
-  //     src: '',
-  //     alt: '動物の画像',
-  //   },
-  // },
+  {
+    id: 7,
+    title: '動物(イヌやネコ) 年齢 早見表',
+    content: '犬や猫を人間の年齢に換算すると何歳？年齢早見表で確認してみよう！',
+    link: `/${PageLinkConst.ANIMALS}`,
+    category: {
+      id: 1,
+      name: 'b',
+    },
+    img: {
+      src: '',
+      alt: '動物の画像',
+    },
+  },
 ];

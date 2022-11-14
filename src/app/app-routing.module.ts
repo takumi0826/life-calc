@@ -8,6 +8,7 @@ import { TaxiComponent } from './pages/taxi/taxi.component';
 import { TopComponent } from './pages/top/top.component';
 import { TripComponent } from './pages/trip/trip.component';
 import { VegetableComponent } from './pages/vegetable/vegetable.component';
+import { AnimalAgeComponent } from './pages/animal-age/animal-age.component';
 
 const routes: Routes = [
   { path: PageLinkConst.TOP, component: TopComponent, title: 'ライフブック!' },
@@ -40,6 +41,11 @@ const routes: Routes = [
     path: PageLinkConst.VEGETABLE,
     component: VegetableComponent,
     title: '野菜保存方法・期限　早見表',
+  },
+  {
+    path: PageLinkConst.ANIMALS,
+    component: AnimalAgeComponent,
+    title: '犬・猫などの年齢を人間に例えると何歳？年齢早見表',
   },
   { path: '**', component: TopComponent, title: 'ライフブック!' },
 ];

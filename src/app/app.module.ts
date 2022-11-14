@@ -31,6 +31,7 @@ import { NengoComponent } from './pages/nengo/nengo.component';
 import { WarekiDisplayPipe } from './pipes/wareki-display.pipe';
 import { SeirekiDisplayPipe } from './pipes/seireki-display.pipe';
 import { VegetableComponent } from './pages/vegetable/vegetable.component';
+import { AnimalAgeComponent } from './pages/animal-age/animal-age.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { VegetableComponent } from './pages/vegetable/vegetable.component';
     WarekiDisplayPipe,
     SeirekiDisplayPipe,
     VegetableComponent,
+    AnimalAgeComponent,
   ],
   imports: [
     BrowserModule,
