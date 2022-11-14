@@ -1,0 +1,50 @@
+<div class="page animal">
+  <div class="container">
+    <div class="animal__block">
+      <h2 class="animal__label">動物を選択してください</h2>
+      <mat-radio-group
+        [ngModel]="animalSelect$ | async"
+        (ngModelChange)="animalSelect$.next($event)"
+      >
+        <mat-radio-button class="animal__radio" [value]="1"
+          >イヌ</mat-radio-button
+        >
+        <mat-radio-button class="animal__radio" [value]="2"
+          >ネコ</mat-radio-button
+        >
+      </mat-radio-group>
+      <div class="animal__table">
+        <table class="table">
+          <tr>
+            <th>{{ (animalSelect$ | async) === 1 ? '犬' : '猫' }}の年齢</th>
+            <th>人間で例えると</th>
+          </tr>
+          <tr *ngFor="let animal of animals$ | async">
+            <td>{{ animal.age }}</td>
+            <td>{{ animal.compare }}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <section class="section">
+      <h2 class="title-lg">平均寿命について</h2>
+      <p>
+        全国犬猫飼育実績調査（一般社団法人ペットフード協会調べ）が発表したものによると平均寿命は年々伸びているとのことです。
+      </p>
+      <ul>
+        <li>犬の平均寿命: 14.4歳</li>
+        <li>猫の平均寿命: 15.3歳</li>
+      </ul>
+    </section>
+    <section class="section">
+      <h2 class="title-lg">年齢について</h2>
+      <p>犬や猫の年齢は一般的には1年で4〜5歳年をとります。</p>
+      <p>
+        毎日の食事が長生きにつながりますので、年齢や体型にあった栄養食を与えましょう。
+      </p>
+      <p>
+        ※年齢換算の表は目安です。品種や飼育状況などによって年齢が変わります。
+      </p>
+    </section>
+  </div>
+</div>

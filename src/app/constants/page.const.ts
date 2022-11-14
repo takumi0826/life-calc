@@ -11,4 +11,5 @@ export class PageLinkConst {
   static readonly TAXI = 'taxi';
   static readonly NENGO = 'nengo';
   static readonly VEGETABLE = 'vegetable';
+  static readonly ANIMALS = 'animals';
 }
